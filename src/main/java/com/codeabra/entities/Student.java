@@ -23,7 +23,7 @@ public class Student {
     public String emailAddress;
 
     @Column(name = "phone_number")
-    public String phoneNumber;//TODO add regex //@Pattern(regexp = "^(\\+\\d\\d)? ?\\d{9}$")
+    public String phoneNumber;//add regex //@Pattern(regexp = "^(\\+\\d\\d)? ?\\d{9}$")
 
     //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Gender by the enum‘s ordinal.
     @Enumerated(EnumType.ORDINAL)

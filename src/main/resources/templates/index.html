@@ -3,12 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
+  <th:block th:include="fragments :: bootstrap"/>
 </head>
 <body>
 <div>
-  <h1>Heloł łort!</h1>
-  <table>
-    <thead>
+  <div th:replace="fragments :: hello"></div>
+  <div class="btn btn-dark">
+    <a th:href="@{students/add}">Add student</a>
+  </div>
+  <table class="table table-striped">
+    <thead class="thead-dark">
     <tr>
       <th>ID</th>
       <th>Name</th>
