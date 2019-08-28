@@ -5,10 +5,14 @@ import com.codeabra.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
+import javax.xml.bind.Binder;
 import java.util.List;
 
 @Controller
@@ -25,19 +29,24 @@ public class StudentController {
     public String showMain(Model model) {
         List<Student> students = studentService.findAll();
         model.addAttribute("students", students);
-        System.out.println(students.toString());
         return "index";
     }
 
-    @GetMapping("students/add")
+    @GetMapping("/students/add")
     public String showAddStudentForm() {
         return "add-student";
     }
 
-    @PostMapping("students/add")
-    public String processAddingStudent() {
+    @PostMapping("/students")
+    public String processAddingStudent(@Valid @ModelAttribute("student") Student student,
+                                       BindingResult result) {
         //process adding student
-        return "index";
+        if (result.hasErrors()) {
+            return "add-student";
+        } else {
+            studentService.save(student);
+            return "redirect:/student";
+        }
     }
 
 }

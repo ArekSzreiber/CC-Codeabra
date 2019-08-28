@@ -8,85 +8,37 @@
 <body>
 <div>
   <h1>Add student</h1>
-  <form method="POST" th:action="@{/students}">
+  <form method="POST" action="#" th:action="@{/students}" th:object="${student}">
     <div class="form-group">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text">
+      <label for="inputName">Name</label>
+      <input id="inputName" name="name"  type="text">
+      <span th:if="${#fields.hasErrors('')}"></span>
     </div>
     <div class="form-group">
-      <label for="surname">Surname</label>
-      <input id="surname" name="surname" type="text">
+      <label for="inputSurname">Surname</label>
+      <input id="inputSurname" name="surname" type="text">
     </div>
     <div class="form-group">
-      <select>
-        <option value="" disabled selected hidden>Choose sex</option>
+      <label for="inputGender">Gender</label>
+      <select id="inputGender" name="gender">
+        <option value="" disabled selected hidden>Gender</option>
         <option value="MALE">Male</option>
         <option value="FEMALE">Female</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="email">Email address</label>
-      <input id="email" name="emailAddress" type="email">
+<div class="form-group col-md-6">
+      <label for="inputEmail">Email address</label>
+      <input id="inputEmail" name="emailAddress" type="email" placeholder="Email address" class="form-control">
     </div>
     <div class="form-group">
       <label for="phone">Phone number</label>
-      <input id="phone" name="phoneNumber" type="text">
+      <input id="phone" name="phoneNumber" type="text" placeholder="Phone number">
     </div>
     <div class="form-group">
-      <input type="submit" value="Submit">
+      <button type="submit" class="btn btn-dark">Submit</button>
     </div>
   </form>
 </div>
 
-
-
-<div>
-  <form>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputEmail4">Email</label>
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
-      </div>
-      <div class="form-group col-md-6">
-        <label for="inputPassword4">Password</label>
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="inputAddress">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="form-group">
-      <label for="inputAddress2">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputCity">City</label>
-        <input type="text" class="form-control" id="inputCity">
-      </div>
-      <div class="form-group col-md-4">
-        <label for="inputState">State</label>
-        <select id="inputState" class="form-control">
-          <option selected>Choose...</option>
-          <option>...</option>
-        </select>
-      </div>
-      <div class="form-group col-md-2">
-        <label for="inputZip">Zip</label>
-        <input type="text" class="form-control" id="inputZip">
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
-      </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Sign in</button>
-  </form>
-</div>
 </body>
 </html>

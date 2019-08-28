@@ -11,26 +11,7 @@
   <div class="btn btn-dark">
     <a th:href="@{students/add}">Add student</a>
   </div>
-  <table class="table table-striped">
-    <thead class="thead-dark">
-    <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Email address</th>
-      <th>Phone number</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="student : ${students}">
-      <td th:text="${student.id}"></td>
-      <td th:text="${student.name}"></td>
-      <td th:text="${student.surname}"></td>
-      <td th:text="${student.emailAddress}"></td>
-      <td th:text="${student.phoneNumber}"></td>
-    </tr>
-    </tbody>
-  </table>
+  <table th:replace="students/list-students :: students-table(${students})"></table>
 </div>
 </body>
 </html>

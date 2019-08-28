@@ -2,6 +2,7 @@ package com.codeabra.entities;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 
 @Table(name = "students", schema = "public")
@@ -12,11 +13,14 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long id;
 
-    @NotNull(message = "Name can not be empty")
     @Column(name = "name")
+    @NotNull(message = "Name can not be empty")
+    @Size(min = 2, max = 15)
     public String name;
 
     @Column(name = "surname")
+    @NotNull
+    @Size(min = 2, max = 30)
     public String surname;
 
     @Column(name = "email_address")
@@ -31,4 +35,6 @@ public class Student {
 
     public Student() {
     }
+
+
 }
