@@ -41,7 +41,7 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public String processAddingStudent(@Valid @ModelAttribute Student student,
+    public String addNewStudent(@Valid @ModelAttribute Student student,
                                        BindingResult result,
                                        Model model) {
 

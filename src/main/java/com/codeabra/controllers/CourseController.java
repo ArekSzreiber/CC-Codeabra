@@ -2,6 +2,7 @@ package com.codeabra.controllers;
 
 import com.codeabra.entities.Course;
 import com.codeabra.repositories.CourseRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,29 +18,28 @@ public class CourseController {
 
     private CourseRepository courseRepository;
 
+    @Autowired
     public CourseController(CourseRepository courseRepository) {
         this.courseRepository = courseRepository;
     }
 
     @GetMapping("/courses")
-    public String findAll(Model theModel) {
+    public String showAllCourses(Model theModel) {
         theModel.addAttribute("courses", courseRepository.findAll());
         return "courses/courses-list";
     }
 
-    //add new Course
-    @GetMapping("/courses/add-form")
-    public String courseAddingForm(Model model) {
-        Course course = new Course();
-        model.addAttribute("course", course);
+
+    @GetMapping("/courses/add")
+    public String showAddCourseForm(Model model) {
+        model.addAttribute("course", new Course());
         return "courses/courses-form";
     }
 
-    @PostMapping("/courses/add-form")
-    public String addNewCourse(
-            @Valid @ModelAttribute("course") Course course,
-            BindingResult result){
-        if (result.hasErrors()){
+    @PostMapping("/courses/add")
+    public String addNewCourse(@Valid @ModelAttribute("course") Course course,
+                               BindingResult result) {
+        if (result.hasErrors()) {
             return "courses/courses-form";
         } else {
             courseRepository.save(course);
@@ -48,10 +48,10 @@ public class CourseController {
     }
 
     //edit Course
-    @GetMapping("/courses/edit-course")
-    public String editCourseForm(@RequestParam("courseToEditId") int courseId,
+    @GetMapping("/courses/edit")
+    public String editCourseForm(@RequestParam("id") int courseId,
                                  Model model) {
-        Course course = (Course) courseRepository.findById(courseId).get();
+        Course course = courseRepository.findById(courseId).get();//to ogarnięcia Optional z medicalspringa
         model.addAttribute("course", course);
         return "courses/course-form";
     }
