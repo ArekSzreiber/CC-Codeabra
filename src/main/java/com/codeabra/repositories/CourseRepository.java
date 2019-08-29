@@ -1,6 +1,6 @@
-package com.codeabra.repository;
+package com.codeabra.repositories;
 
-import com.codeabra.entity.Course;
+import com.codeabra.entities.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

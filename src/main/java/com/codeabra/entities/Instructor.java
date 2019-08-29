@@ -1,4 +1,4 @@
-package com.codeabra.entity;
+package com.codeabra.entities;
 
 import lombok.Data;
 import javax.persistence.*;
@@ -7,8 +7,6 @@ import org.springframework.stereotype.Component;
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @Component

@@ -1,7 +1,7 @@
-package com.codeabra.controller;
+package com.codeabra.controllers;
 
-import com.codeabra.entity.Course;
-import com.codeabra.repository.CourseRepository;
+import com.codeabra.entities.Course;
+import com.codeabra.repositories.CourseRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class CourseController {
