@@ -16,15 +16,15 @@ import java.util.List;
 @Controller
 public class CourseController {
 
-    CourseRepository courseRepository;
+    private CourseRepository courseRepository;
+
+    public CourseController(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
 
     @GetMapping("/courses")
     public String findAll(Model theModel) {
         theModel.addAttribute("courses", courseRepository.findAll());
-        List<Course> courses = courseRepository.findAll();
-        for (Course course:courses) {
-            System.out.println(course.toString());
-        }
         return "courses/courses-list";
     }
 
@@ -33,7 +33,6 @@ public class CourseController {
     public String courseAddingForm(Model model) {
         Course course = new Course();
         model.addAttribute("course", course);
-
         return "courses/courses-form";
     }
 
@@ -41,14 +40,9 @@ public class CourseController {
     public String addNewCourse(
             @Valid @ModelAttribute("course") Course course,
             BindingResult result){
-
-        System.out.println("Dupa");
-
         if (result.hasErrors()){
             return "courses/courses-form";
         } else {
-            System.out.println("Jaj");
-            System.out.println(course.toString());
             courseRepository.save(course);
             return "redirect:/courses";
         }
