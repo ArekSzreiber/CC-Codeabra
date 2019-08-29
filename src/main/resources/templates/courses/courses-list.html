@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista kursów</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container ">
+
+    <table class="table table-striped table-hover table-sm">
+        <thead class="thead-dark">
+        <tr>
+            <th>NAZWA KURSU</th>
+            <th>DZIEŃ TYGODNIA</th>
+            <th>GODZINA</th>
+            <th>POZIOM</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="course : ${courses}">
+            <td th:text="${course.name}" ></td>
+            <td th:text="${course.dayOfWeek}" class="funny"></td>
+            <td th:text="${course.time}" class="funny"></td>
+            <td th:text="${course.level}" class="funny"></td>
+<!--            <td>
+                <a th:href="@{/medicines/showFormForEditMedicine(medicineIdToEdit=${medicine.medicineId})}"
+                   class="btn btn-info btn-sm">Update</a>
+            </td>
+            <td>
+                <a th:href="@{/medicines/delete(medicineIdToDelete=${medicine.medicineId})}"
+                   class="btn btn-danger btn-sm"
+                   onclick="if(!(confirm('Czy jesteś pewien?')))return false">Delete</a>
+            </td>-->
+
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+</body>
+</html>
