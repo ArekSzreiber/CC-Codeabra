@@ -12,5 +12,4 @@ public interface StudentService {
 
     void save(Student student);
 
-//    Gender[] getGenders();
 }

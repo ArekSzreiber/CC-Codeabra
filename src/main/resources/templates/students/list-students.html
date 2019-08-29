@@ -11,6 +11,7 @@
     <th>ID</th>
     <th>Name</th>
     <th>Surname</th>
+    <th>Gender</th>
     <th>Email address</th>
     <th>Phone number</th>
   </tr>
@@ -20,6 +21,7 @@
     <td th:text="${student.id}"></td>
     <td th:text="${student.name}"></td>
     <td th:text="${student.surname}"></td>
+    <td th:text="${student.gender.name}"></td>
     <td th:text="${student.emailAddress}"></td>
     <td th:text="${student.phoneNumber}"></td>
   </tr>

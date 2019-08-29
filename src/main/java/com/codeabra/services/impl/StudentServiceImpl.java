@@ -31,9 +31,5 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.save(student);
     }
 
-/*    @Override
-    public Gender[] getGenders() {
-        return Gender.values();
-    }*/
 
 }

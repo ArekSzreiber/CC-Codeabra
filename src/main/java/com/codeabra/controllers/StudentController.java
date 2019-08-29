@@ -1,5 +1,6 @@
 package com.codeabra.controllers;
 
+import com.codeabra.entities.Gender;
 import com.codeabra.entities.Student;
 import com.codeabra.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class StudentController {
     @GetMapping("/students/add")
     public String showAddStudentForm(Model model) {
         model.addAttribute("student", new Student());
+        model.addAttribute("genders", Gender.values());
         return "add-student";
     }
 
