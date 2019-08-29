@@ -31,5 +31,15 @@ public class StudentServiceImpl implements StudentService {
         studentRepository.save(student);
     }
 
+    @Override
+    public List<Student> findAllMales() {
+        return studentRepository.findAllByGender(Gender.MALE);
+    }
+
+    @Override
+    public List<Student> findAllFemales() {
+        return studentRepository.findAllByGender(Gender.FEMALE);
+    }
+
 
 }

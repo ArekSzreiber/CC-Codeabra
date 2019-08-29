@@ -27,10 +27,11 @@ public class StudentController {
 
 
     @GetMapping({"/", "/students"})
-    public String showMain(Model model) {
+    public String showStudents(Model model) {
         List<Student> students = studentService.findAll();
         model.addAttribute("students", students);
-//        model.addAttribute("genders", studentService.getGenders());
+        model.addAttribute("ladies", studentService.findAllFemales());
+        model.addAttribute("gentlemen", studentService.findAllMales());
         return "index";
     }
 
@@ -43,7 +44,10 @@ public class StudentController {
 
     @PostMapping("/students")
     public String processAddingStudent(@Valid @ModelAttribute Student student,
-                                       BindingResult result) {
+                                       BindingResult result,
+                                       Model model) {
+        //to retain gender dropdown after attempt to send form with not valid data
+        model.addAttribute("genders", Gender.values());
         if (result.hasErrors()) {
             return "add-student";
         } else {

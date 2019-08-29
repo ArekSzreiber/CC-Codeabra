@@ -12,4 +12,8 @@ public interface StudentService {
 
     void save(Student student);
 
+    List<Student> findAllMales();
+
+    List<Student> findAllFemales();
+
 }
