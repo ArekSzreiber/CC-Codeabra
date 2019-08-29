@@ -11,24 +11,42 @@
   <form method="POST" action="#" th:action="@{/students}" th:object="${student}">
     <div class="form-group col-md-6">
       <label for="inputName">Name</label>
-      <input id="inputName" th:field="*{name}" type="text" class="form-control" placeholder="Name">
+      <input id="inputName"
+             placeholder="Name"
+             th:field="*{name}"
+             th:class="${#fields.hasErrors('name')}? 'form-control is-invalid' : 'form-control'"
+             type="text"
+      >
+      <mark class="error-sign small" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></mark>
     </div>
     <div class="form-group col-md-6">
       <label for="inputSurname">Surname</label>
       <input id="inputSurname"
-             th:field="*{surname}"
-             type="text"
-             class="form-control"
              placeholder="Surname"
+             th:field="*{surname}"
+             th:class="${#fields.hasErrors('surname')}? 'form-control is-invalid' : 'form-control'"
+             type="text"
       >
+      <mark class="error-sign small" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></mark>
+
     </div>
     <div class="form-group col-md-6">
       <label for="inputEmail">Email address</label>
-      <input id="inputEmail" th:field="*{emailAddress}" type="email" placeholder="Email address" class="form-control">
+      <input id="inputEmail"
+             class="form-control"
+             placeholder="Email address"
+             th:field="*{emailAddress}"
+             type="email"
+      >
     </div>
     <div class="form-group col-md-6">
       <label for="phone">Phone number</label>
-      <input id="phone" th:field="*{phoneNumber}" type="text" placeholder="Phone number" class="form-control">
+      <input id="phone"
+             class="form-control"
+             placeholder="Phone number"
+             th:field="*{phoneNumber}"
+             type="text"
+      >
     </div>
     <div class="form-group">
       <input type="submit" class="btn btn-dark" value="Submit">

@@ -21,13 +21,13 @@ public class Student {
     public Long id;
 
     @Column(name = "name")
-/*    @NotNull(message = "Name can not be empty")
-    @Size(min = 2, max = 15)*/
+    @NotNull(message = "Name can not be empty")
+    @Size(min = 2, max = 15)
     public String name;
 
     @Column(name = "surname")
-/*    @NotNull
-    @Size(min = 2, max = 30)*/
+    @NotNull
+    @Size(min = 2, max = 30)
     public String surname;
 
     @Column(name = "email_address")
