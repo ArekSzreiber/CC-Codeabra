@@ -9,15 +9,15 @@
                 </tr>
                 <tr>
                     <td>Dzień tygodnia:</td>
-                    <select name="dayOfWeek" th:field="*{dayOfWeek}">
-                        <option value="1">Poniedziałek</option>
-                        <option value="2">Wtorek</option>
-                        <option value="3">Środa</option>
-                        <option value="4">Czwartek</option>
-                        <option value="5">Piątek</option>
-                        <option value="6">Sobota</option>
-                        <option value="7">Niedziela</option>
-                    </select>
+                    <td><select name="dayOfWeek" th:field="*{dayOfWeek}">
+                        <option value="Monday">Poniedziałek</option>
+                        <option value="Tuesday">Wtorek</option>
+                        <option value="Wednesday">Środa</option>
+                        <option value="Thursday">Czwartek</option>
+                        <option value="Friday">Piątek</option>
+                        <option value="Saturday">Sobota</option>
+                        <option value="Sunday">Niedziela</option>
+                    </select></td>
                     <!--<td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>-->
                 </tr>
                 <tr>

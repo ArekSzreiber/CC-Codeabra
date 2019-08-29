@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class CourseController {
@@ -20,6 +21,10 @@ public class CourseController {
     @GetMapping("/courses")
     public String findAll(Model theModel) {
         theModel.addAttribute("courses", courseRepository.findAll());
+        List<Course> courses = courseRepository.findAll();
+        for (Course course:courses) {
+            System.out.println(course.toString());
+        }
         return "courses/courses-list";
     }
 
@@ -28,7 +33,8 @@ public class CourseController {
     public String courseAddingForm(Model model) {
         Course course = new Course();
         model.addAttribute("course", course);
-        return "courses/course-form";
+        System.out.println("Dupa");
+        return "courses-form";
     }
 
     @PostMapping("/courses/add")
