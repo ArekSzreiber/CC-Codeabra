@@ -33,17 +33,22 @@ public class CourseController {
     public String courseAddingForm(Model model) {
         Course course = new Course();
         model.addAttribute("course", course);
-        System.out.println("Dupa");
-        return "courses-form";
+
+        return "courses/courses-form";
     }
 
-    @PostMapping("/courses/add")
+    @PostMapping("/courses/add-form")
     public String addNewCourse(
             @Valid @ModelAttribute("course") Course course,
             BindingResult result){
+
+        System.out.println("Dupa");
+
         if (result.hasErrors()){
-            return "courses/course-form";
+            return "courses/courses-form";
         } else {
+            System.out.println("Jaj");
+            System.out.println(course.toString());
             courseRepository.save(course);
             return "redirect:/courses";
         }

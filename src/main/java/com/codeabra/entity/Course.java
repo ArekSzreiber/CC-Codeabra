@@ -9,6 +9,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.sql.Time;
 import java.util.HashSet;
+import java.util.Set;
 
 @Data
 @Component
@@ -30,23 +31,24 @@ public class Course {
     @Column(name = "dayOfWeek")
     private String dayOfWeek;
 
-    @DateTimeFormat(pattern = "hh:mm")
+    //@DateTimeFormat(pattern = "hh:mm")
     @NotNull(message = "pole wymagane")
     @Column(name = "time")
-    private Time time;
+    private String time;
 
     @NotNull(message = "pole wymagane")
-    @Size(min = 2, message = "wymagane min. 2 znaki")
+    //@Size(min = 2, message = "wymagane min. 2 znaki")
     @Column(name = "level")
     private String level;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    /*@ManyToMany(fetch = FetchType.LAZY,
+            cascade = { CascadeType.PERSIST, CascadeType.MERGE })
     @JoinTable(
-            name = "Instructors_Courses",
+            name = "instructors_courses",
             joinColumns = { @JoinColumn(name = "course_id") },
             inverseJoinColumns = { @JoinColumn(name = "instructor_id")}
     )
-    Set<Instructor> instructors = new HashSet<>();
+    Set<Instructor> instructorsCourses = new HashSet<>();*/
 
 
 }
