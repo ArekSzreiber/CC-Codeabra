@@ -1,5 +1,6 @@
 package com.codeabra.services.impl;
 
+import com.codeabra.entities.Gender;
 import com.codeabra.entities.Student;
 import com.codeabra.repositories.StudentRepository;
 import com.codeabra.services.interfaces.StudentService;
@@ -29,5 +30,10 @@ public class StudentServiceImpl implements StudentService {
     public void save(Student student) {
         studentRepository.save(student);
     }
+
+/*    @Override
+    public Gender[] getGenders() {
+        return Gender.values();
+    }*/
 
 }

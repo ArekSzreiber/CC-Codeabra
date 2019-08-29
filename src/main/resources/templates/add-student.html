@@ -9,33 +9,29 @@
 <div>
   <h1>Add student</h1>
   <form method="POST" action="#" th:action="@{/students}" th:object="${student}">
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="inputName">Name</label>
-      <input id="inputName" name="name"  type="text">
-      <span th:if="${#fields.hasErrors('')}"></span>
+      <input id="inputName" th:field="*{name}" type="text" class="form-control" placeholder="Name">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="inputSurname">Surname</label>
-      <input id="inputSurname" name="surname" type="text">
+      <input id="inputSurname"
+             th:field="*{surname}"
+             type="text"
+             class="form-control"
+             placeholder="Surname"
+      >
     </div>
-    <div class="form-group">
-      <label for="inputGender">Gender</label>
-      <select id="inputGender" name="gender">
-        <option value="" disabled selected hidden>Gender</option>
-        <option value="MALE">Male</option>
-        <option value="FEMALE">Female</option>
-      </select>
-    </div>
-<div class="form-group col-md-6">
+    <div class="form-group col-md-6">
       <label for="inputEmail">Email address</label>
-      <input id="inputEmail" name="emailAddress" type="email" placeholder="Email address" class="form-control">
+      <input id="inputEmail" th:field="*{emailAddress}" type="email" placeholder="Email address" class="form-control">
     </div>
-    <div class="form-group">
+    <div class="form-group col-md-6">
       <label for="phone">Phone number</label>
-      <input id="phone" name="phoneNumber" type="text" placeholder="Phone number">
+      <input id="phone" th:field="*{phoneNumber}" type="text" placeholder="Phone number" class="form-control">
     </div>
     <div class="form-group">
-      <button type="submit" class="btn btn-dark">Submit</button>
+      <input type="submit" class="btn btn-dark" value="Submit">
     </div>
   </form>
 </div>

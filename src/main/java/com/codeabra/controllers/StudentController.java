@@ -29,23 +29,24 @@ public class StudentController {
     public String showMain(Model model) {
         List<Student> students = studentService.findAll();
         model.addAttribute("students", students);
+//        model.addAttribute("genders", studentService.getGenders());
         return "index";
     }
 
     @GetMapping("/students/add")
-    public String showAddStudentForm() {
+    public String showAddStudentForm(Model model) {
+        model.addAttribute("student", new Student());
         return "add-student";
     }
 
     @PostMapping("/students")
-    public String processAddingStudent(@Valid @ModelAttribute("student") Student student,
+    public String processAddingStudent(@ModelAttribute Student student,
                                        BindingResult result) {
-        //process adding student
         if (result.hasErrors()) {
             return "add-student";
         } else {
             studentService.save(student);
-            return "redirect:/student";
+            return "redirect:/students";
         }
     }
 
