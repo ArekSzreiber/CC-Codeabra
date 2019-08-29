@@ -4,20 +4,22 @@
   <meta charset="UTF-8">
   <title>Title</title>
   <th:block th:include="fragments :: bootstrap"/>
+
 </head>
 <body>
 <div>
-  <div th:replace="fragments :: hello"></div>
   <div class="btn btn-dark">
     <a th:href="@{students/add}">Add student</a>
   </div>
   <div th:class="row">
     <div class="table-responsive col-lg-6 col-md-6 col-sm-12">
-      <table th:replace="students/list-students :: students-table(${ladies})"></table>
+      <table th:replace="students/students-table :: table(${ladies})"></table>
     </div>
     <div class="table-responsive col-lg-6 col-md-6 col-sm-12">
-      <table th:replace="students/list-students :: students-table(${gentlemen})"></table>
+      <table th:replace="students/students-table :: table(${gentlemen})"></table>
+
     </div>
+
   </div>
 
 </div>

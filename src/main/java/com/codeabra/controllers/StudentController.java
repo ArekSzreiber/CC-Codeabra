@@ -10,10 +10,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import javax.xml.bind.Binder;
 import java.util.List;
 
 @Controller
@@ -32,24 +30,25 @@ public class StudentController {
         model.addAttribute("students", students);
         model.addAttribute("ladies", studentService.findAllFemales());
         model.addAttribute("gentlemen", studentService.findAllMales());
-        return "index";
+        return "students/list";
     }
 
     @GetMapping("/students/add")
     public String showAddStudentForm(Model model) {
         model.addAttribute("student", new Student());
         model.addAttribute("genders", Gender.values());
-        return "add-student";
+        return "students/add";
     }
 
     @PostMapping("/students")
     public String processAddingStudent(@Valid @ModelAttribute Student student,
                                        BindingResult result,
                                        Model model) {
-        //to retain gender dropdown after attempt to send form with not valid data
-        model.addAttribute("genders", Gender.values());
+
         if (result.hasErrors()) {
-            return "add-student";
+            //to retain gender dropdown after attempt to send form with not valid data
+            model.addAttribute("genders", Gender.values());
+            return "students/add";
         } else {
             studentService.save(student);
             return "redirect:/students";
