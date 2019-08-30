@@ -34,7 +34,7 @@ public class Instructor {
 
     @Column(name = "phone_number")
     public String phoneNumber;//add regex //@Pattern(regexp = "^(\\+\\d\\d)? ?\\d{9}$")
-
+    //TODO do not commit
 /*    //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Gender by the enum‘s ordinal.
     @Enumerated(EnumType.ORDINAL)
     public Gender gender;*/
