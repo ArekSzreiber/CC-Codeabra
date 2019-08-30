@@ -15,7 +15,7 @@ public class Instructor extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long instructorId;
+    private Integer instructorId;
 
 
 }

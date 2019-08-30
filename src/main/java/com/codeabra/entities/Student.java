@@ -17,7 +17,7 @@ public class Student extends Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long studentId;
+    private Integer studentId;
 
     //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Role by the enum‘s ordinal.
     @Enumerated(EnumType.ORDINAL)
