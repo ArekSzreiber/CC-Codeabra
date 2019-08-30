@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Data
@@ -20,15 +21,17 @@ public class Course {
 
     @NotNull(message = "pole wymagane")
     @Size(min = 3, message = "wymagane min. 3 znaki")
-    @Column(name = "name")
+    @Column
     private String name;
 
     @NotNull(message = "pole wymagane")
-    @Column(name = "dayOfWeek") //TODO change to default column name
+    @Pattern(regexp = "\\b(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\\b", message = "To nie jest poprawny dzień tygodnia!")
+    @Column
     private String dayOfWeek;
 
     //@DateTimeFormat(pattern = "hh:mm")
     @NotNull(message = "pole wymagane")
+    @Pattern(regexp = "\\b(?:10|12|14|16|18|20)\\b", message = "To nie jest poprawna godzina!")
     @Column
     private String time;
 

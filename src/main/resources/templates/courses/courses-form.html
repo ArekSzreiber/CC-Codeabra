@@ -9,7 +9,6 @@
     </tr>
     <tr>
       <td>Dzień tygodnia:</td>
-<!--    TODO valdation - Funday-->
       <td><select name="dayOfWeek" th:field="*{dayOfWeek}">
         <option value="Monday">Poniedziałek</option>
         <option value="Tuesday">Wtorek</option>
@@ -19,7 +18,7 @@
         <option value="Saturday">Sobota</option>
         <option value="Sunday">Niedziela</option>
       </select></td>
-      <!--<td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>-->
+      <td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>
     </tr>
     <tr>
       <td>Godzina:</td>
@@ -31,9 +30,9 @@
         <option value="18">18:00</option>
         <option value="20">20:00</option>
       </select></td>
-      <!--<td><input type="text" th:field="*{time}" /></td>
+      <!--<td><input type="text" th:field="*{time}" /></td>-->
       <td th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time Error</td>
--->                </tr>
+    </tr>
     <tr>
       <td>Poziom:</td>
       <td><input type="text" th:field="*{level}"/></td>
