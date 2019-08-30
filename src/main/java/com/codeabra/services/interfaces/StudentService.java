@@ -13,4 +13,5 @@ public interface StudentService {
 
     List<Student> findAllByRole(Role role);
 
+    void delete(int id);
 }

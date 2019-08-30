@@ -35,6 +35,10 @@ public class StudentServiceImpl implements StudentService {
         return studentRepository.findAllByRole(role);
     }
 
+    @Override
+    public void delete(int id) {
+        studentRepository.deleteById(id);
+    }
 
 
 }
