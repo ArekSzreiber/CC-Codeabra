@@ -27,8 +27,6 @@ public class StudentController {
     @GetMapping({"/", "/students"})
     public String showStudents(Model model) {
         List<Student> students = studentService.findAll();
-        model.addAttribute("students", students);
-        //TODO change names ladies and gentlemen to roles
         model.addAttribute("ladies", studentService.findAllFemales());
         model.addAttribute("gentlemen", studentService.findAllMales());
         return "students/list";

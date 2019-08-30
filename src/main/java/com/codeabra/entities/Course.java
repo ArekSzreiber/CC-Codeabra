@@ -12,19 +12,18 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(name = "Courses", schema = "public")
 public class Course {
-    //TODO relation one-to-many course-lesson
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "course_id")
+    @Column
     private int courseId;
 
     @NotNull(message = "pole wymagane")
     @Size(min = 3, message = "wymagane min. 3 znaki")
-    @Column(name = "name")
+    @Column
     private String name;
 
     @NotNull(message = "pole wymagane")
-    @Column(name = "dayOfWeek") //TODO change to default column name
+    @Column
     private String dayOfWeek;
 
     //@DateTimeFormat(pattern = "hh:mm")
@@ -32,7 +31,7 @@ public class Course {
     @Column
     private String time;
 
-    @NotNull(message = "pole wymagane")//TODO set global message
+    @NotNull(message = "pole wymagane")
     //@Size(min = 2, message = "wymagane min. 2 znaki")
     @Column
     private String level;

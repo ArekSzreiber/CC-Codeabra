@@ -16,25 +16,24 @@ public class Instructor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "instructor_id")
+    @Column
     private int instructorId;
 
-    @Column(name = "name")
+    @Column
     @NotNull(message = "Name can not be empty")
     @Size(min = 2, max = 15)
     public String name;
 
-    @Column(name = "surname")
+    @Column
     @NotNull
     @Size(min = 2, max = 30)
     public String surname;
 
-    @Column(name = "email_address")
+    @Column
     public String emailAddress;
 
-    @Column(name = "phone_number")
+    @Column
     public String phoneNumber;//add regex //@Pattern(regexp = "^(\\+\\d\\d)? ?\\d{9}$")
-    //TODO do not commit
 /*    //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Gender by the enum‘s ordinal.
     @Enumerated(EnumType.ORDINAL)
     public Gender gender;*/

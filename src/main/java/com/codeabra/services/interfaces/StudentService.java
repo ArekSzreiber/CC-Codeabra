@@ -11,9 +11,9 @@ public interface StudentService {
     List<Student> findAll();
 
     void save(Student student);
-    //todo merge to one method
-    List<Student> findAllMales();//todo change to roles
 
-    List<Student> findAllFemales();//todo change to roles
+    List<Student> findAllMales();
+
+    List<Student> findAllFemales();
 
 }

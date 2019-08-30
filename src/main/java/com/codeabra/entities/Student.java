@@ -20,22 +20,22 @@ public class Student {
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long studentId;
 
-    @Column(name = "name")
+    @Column
     @NotNull(message = "Cannot be empty")
     @Size(min = 2, message = "Minimum length is 2")
     @Size(max = 15, message = "Maximum length is 15")
     public String name;
 
-    @Column(name = "surname")
+    @Column
     @NotNull(message = "Cannot be empty")
     @Size(min = 2, message = "Minimum length is 2")
     @Size(max = 30, message = "Maximum length is 30")
     public String surname;
 
-    @Column(name = "email_address")
+    @Column
     public String emailAddress;
 
-    @Column(name = "phone_number")
+    @Column
     public String phoneNumber;//add regex //@Pattern(regexp = "^(\\+\\d\\d)? ?\\d{9}$")
 
     //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Gender by the enum‘s ordinal.
