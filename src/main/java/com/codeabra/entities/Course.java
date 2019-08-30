@@ -26,24 +26,14 @@ public class Course {
     @Column
     private String dayOfWeek;
 
-    //@DateTimeFormat(pattern = "hh:mm")
     @NotNull(message = "pole wymagane")
     @Column
     private String time;
 
     @NotNull(message = "pole wymagane")
-    //@Size(min = 2, message = "wymagane min. 2 znaki")
     @Column
     private String level;
 
-    /*@ManyToMany(fetch = FetchType.LAZY,
-            cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(
-            name = "instructors_courses",
-            joinColumns = { @JoinColumn(name = "course_id") },
-            inverseJoinColumns = { @JoinColumn(name = "instructor_id")}
-    )
-    Set<Instructor> instructorsCourses = new HashSet<>();*/
 
 
 }

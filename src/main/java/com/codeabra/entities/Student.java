@@ -39,9 +39,9 @@ public class Student {
     @Column
     public String phoneNumber;//add regex //@Pattern(regexp = "^(\\+\\d\\d)? ?\\d{9}$")
 
-    //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Gender by the enum‘s ordinal.
+    //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Role by the enum‘s ordinal.
     @Enumerated(EnumType.ORDINAL)
-    @NotNull(message = "Please choose gender")
-    public Gender gender;
+    @NotNull(message = "Please choose role")
+    public Role role;
 
 }

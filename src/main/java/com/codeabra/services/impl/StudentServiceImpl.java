@@ -1,6 +1,6 @@
 package com.codeabra.services.impl;
 
-import com.codeabra.entities.Gender;
+import com.codeabra.entities.Role;
 import com.codeabra.entities.Student;
 import com.codeabra.repositories.StudentRepository;
 import com.codeabra.services.interfaces.StudentService;
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service(value = "StudentServiceImpl")
@@ -32,14 +31,10 @@ public class StudentServiceImpl implements StudentService {
     }
 
     @Override
-    public List<Student> findAllMales() {
-        return studentRepository.findAllByGender(Gender.MALE);
+    public List<Student> findAllByRole(Role role) {
+        return studentRepository.findAllByRole(role);
     }
 
-    @Override
-    public List<Student> findAllFemales() {
-        return studentRepository.findAllByGender(Gender.FEMALE);
-    }
 
 
 }

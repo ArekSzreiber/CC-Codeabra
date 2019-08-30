@@ -1,6 +1,6 @@
 package com.codeabra.controllers;
 
-import com.codeabra.entities.Gender;
+import com.codeabra.entities.Role;
 import com.codeabra.entities.Student;
 import com.codeabra.services.interfaces.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,16 +26,15 @@ public class StudentController {
 
     @GetMapping({"/", "/students"})
     public String showStudents(Model model) {
-        List<Student> students = studentService.findAll();
-        model.addAttribute("ladies", studentService.findAllFemales());
-        model.addAttribute("gentlemen", studentService.findAllMales());
+        model.addAttribute("followers", studentService.findAllByRole(Role.FOLLOWER));
+        model.addAttribute("leaders", studentService.findAllByRole(Role.LEADER));
         return "students/list";
     }
 
     @GetMapping("/students/add")
     public String showAddStudentForm(Model model) {
         model.addAttribute("student", new Student());
-        model.addAttribute("genders", Gender.values());
+        model.addAttribute("roles", Role.values());
         return "students/add";
     }
 
@@ -45,8 +44,8 @@ public class StudentController {
                                        Model model) {
 
         if (result.hasErrors()) {
-            //to retain gender dropdown after attempt to send form with not valid data
-            model.addAttribute("genders", Gender.values());
+            //to retain roles dropdown after attempt to send form with not valid data
+            model.addAttribute("roles", Role.values());
             return "students/add";
         } else {
             studentService.save(student);
