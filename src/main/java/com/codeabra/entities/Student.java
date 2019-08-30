@@ -33,6 +33,7 @@ public class Student {
     public String surname;
 
     @Column
+    @Size(max = 254)
     public String emailAddress;
 
     @Column
