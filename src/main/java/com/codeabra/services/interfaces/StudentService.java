@@ -8,7 +8,6 @@ import java.util.List;
 
 @Service
 public interface StudentService {
-    List<Student> findAll();
 
     void save(Student student);
 

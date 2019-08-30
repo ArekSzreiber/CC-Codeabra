@@ -51,7 +51,7 @@ public class CourseController {
     @GetMapping("/courses/edit")
     public String editCourseForm(@RequestParam("id") int courseId,
                                  Model model) {
-        Course course = courseRepository.findById(courseId).get();//to ogarnięcia Optional z medicalspringa
+        Course course = courseRepository.findById(courseId).get();//TODO use Optional (see examples in medicalspring)
         model.addAttribute("course", course);
         return "courses/course-form";
     }

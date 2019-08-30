@@ -3,12 +3,12 @@
 <form action="#" th:action="@{/courses/add}" th:object="${course}" method="post">
   <table>
     <tr>
-      <td>Nazwa kursu:</td>
+      <td>Course name:</td>
       <td><input type="text" th:field="*{name}"/></td>
       <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
     </tr>
     <tr>
-      <td>Dzień tygodnia:</td>
+      <td>Day of week:</td>
       <td><select name="dayOfWeek" th:field="*{dayOfWeek}">
         <option value="Monday">Poniedziałek</option>
         <option value="Tuesday">Wtorek</option>
@@ -21,7 +21,7 @@
       <!--<td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>-->
     </tr>
     <tr>
-      <td>Godzina:</td>
+      <td>Hour:</td>
       <td><select name="time" th:field="*{time}">
         <option value="10">10:00</option>
         <option value="12">12:00</option>
@@ -34,7 +34,7 @@
       <td th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time Error</td>
 -->                </tr>
     <tr>
-      <td>Poziom:</td>
+      <td>Level:</td>
       <td><input type="text" th:field="*{level}"/></td>
       <td th:if="${#fields.hasErrors('level')}" th:errors="*{level}">Level Error</td>
     </tr>
