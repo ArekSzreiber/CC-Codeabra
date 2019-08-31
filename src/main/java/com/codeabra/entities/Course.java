@@ -25,7 +25,7 @@ public class Course {
 
     @NotNull(message = "pole wymagane")
     @Column
-    private String dayOfWeek;
+    private Weekday weekday;
 
     @NotNull(message = "pole wymagane")
     @Column

@@ -1,6 +1,7 @@
 package com.codeabra.controllers;
 
 import com.codeabra.entities.Course;
+import com.codeabra.entities.Weekday;
 import com.codeabra.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,6 +34,7 @@ public class CourseController {
     @GetMapping("/courses/add")
     public String showAddCourseForm(Model model) {
         model.addAttribute("course", new Course());
+        model.addAttribute("weekdays", Weekday.values());
         return "courses/courses-form";
     }
 
@@ -40,7 +42,7 @@ public class CourseController {
     public String addNewCourse(@Valid @ModelAttribute("course") Course course,
                                BindingResult result) {
         if (result.hasErrors()) {
-            return "courses/courses-form";
+            return "redirect:/courses/add";
         } else {
             courseRepository.save(course);
             return "redirect:/courses";
