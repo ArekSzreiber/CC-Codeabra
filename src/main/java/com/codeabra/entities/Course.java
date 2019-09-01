@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.temporal.WeekFields;
 
 @Data
 @Component
@@ -34,7 +33,6 @@ public class Course {
     @NotNull(message = "pole wymagane")
     @Column
     private String level;
-
 
 
 }
