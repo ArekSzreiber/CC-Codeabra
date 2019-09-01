@@ -10,7 +10,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @Controller
 public class StudentController {
@@ -33,7 +32,7 @@ public class StudentController {
     public String showAddStudentForm(Model model) {
         model.addAttribute("student", new Student());
         model.addAttribute("roles", Role.values());
-        return "students/add";
+        return "students/form";
     }
 
     @PostMapping("/students")
@@ -44,7 +43,7 @@ public class StudentController {
         if (result.hasErrors()) {
             //to retain roles dropdown after attempt to send form with not valid data
             model.addAttribute("roles", Role.values());
-            return "students/add";
+            return "students/form";
         } else {
             studentService.save(student);
             return "redirect:/students";
