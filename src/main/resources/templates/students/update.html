@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-  <h1>Update student</h1>
+  <h1 th:text="#{update}"></h1>
   <form th:method="POST" action="#" th:action="@{/students}" th:object="${student}">
     <div class="form-group col-md-6">
       <input type="hidden" th:field="*{studentId}"/>

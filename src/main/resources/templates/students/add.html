@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-  <h1>Add student</h1>
+  <h1 th:text="#{add}"></h1>
   <form th:method="POST" action="#" th:action="@{/students}" th:object="${student}">
     <div class="form-group col-md-6">
       <label th:for="inputName">Name</label>
