@@ -19,6 +19,7 @@
       >
       <mark class="error-sign small" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></mark>
     </div>
+
     <div class="form-group col-md-6">
       <label th:for="inputSurname">Surname</label>
       <input id="inputSurname"
@@ -28,17 +29,20 @@
              type="text"
       >
       <mark class="error-sign small" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></mark>
-
     </div>
+
     <div class="form-group col-md-6">
       <label th:for="inputEmail">Email address</label>
       <input id="inputEmail"
              class="form-control"
              placeholder="Email address"
              th:field="*{emailAddress}"
+             th:class="${#fields.hasErrors('emailAddress')}? 'form-control is-invalid' : 'form-control'"
              type="email"
       >
+      <mark class="error-sign small" th:if="${#fields.hasErrors('emailAddress')}" th:errors="*{emailAddress}"></mark>
     </div>
+
     <div class="form-group col-md-6">
       <label th:for="phone">Phone number</label>
       <input id="phone"
@@ -48,6 +52,7 @@
              type="text"
       >
     </div>
+
     <div class="form-group col-md-6">
       <label th:for="role">Role</label>
       <select th:field="*{role}">
@@ -58,6 +63,7 @@
       </select>
       <mark class="error-sign small" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></mark>
     </div>
+
     <div class="form-group col-md-4">
       <input type="submit" class="btn btn-dark" value="Submit">
       <a th:href="@{/students}"

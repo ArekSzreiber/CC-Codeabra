@@ -17,20 +17,20 @@ public class Course {
     @Column
     private int courseId;
 
-    @NotNull(message = "pole wymagane")
-    @Size(min = 3, message = "wymagane min. 3 znaki")
+    @NotNull(message = "{notnull}")
+    @Size(min = 3, message = "{min.length}")
     @Column
     private String name;
 
-    @NotNull(message = "pole wymagane")
+    @NotNull(message = "{notnull}")
     @Column
     private Weekday weekday;
 
-    @NotNull(message = "pole wymagane")
+    @NotNull(message = "{notnull}")
     @Column
     private String time;
 
-    @NotNull(message = "pole wymagane")
+    @NotNull(message = "{notnull}")
     @Column
     private String level;
 

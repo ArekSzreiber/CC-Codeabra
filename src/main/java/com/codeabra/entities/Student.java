@@ -21,7 +21,7 @@ public class Student extends Person {
 
     //Actually, we don’t have to specify the @Enumerated annotation at all if we are going to persist the Role by the enum‘s ordinal.
     @Enumerated(EnumType.ORDINAL)
-    @NotNull(message = "Please choose role")
+    @NotNull(message = "{notnull.role}")
     public Role role;
 
 }

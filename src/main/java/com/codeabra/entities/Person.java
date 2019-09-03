@@ -16,19 +16,20 @@ import javax.validation.constraints.Size;
 public class Person {
 
     @Column
-    @NotNull(message = "Cannot be empty")
-    @Size(min = 2, message = "Minimum length is 2")
-    @Size(max = 15, message = "Maximum length is 15")
+    @NotNull(message = "{notempty}")
+    @Size(min = 2, message = "{min.length}")
+    @Size(max = 15, message = "{max.length}")
     public String name;
 
     @Column
-    @NotNull(message = "Cannot be empty")
-    @Size(min = 2, message = "Minimum length is 2")
-    @Size(max = 30, message = "Maximum length is 30")
+    @NotNull(message = "{notempty}")
+    @Size(min = 2, message = "{min.length}")
+    @Size(max = 30, message = "{max.length}")
     public String surname;
 
     @Column
     @Size(max = 254)
+    @Size(min = 2, message = "{email.notempty}")
     public String emailAddress;
 
     @Column
