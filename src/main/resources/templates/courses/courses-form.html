@@ -1,45 +1,52 @@
 <html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses form</title>
+  <th:block th:include="fragments :: bootstrap"/>
+</head>
 <body>
-<form action="#" th:action="@{/courses/add}" th:object="${course}" method="post">
-  <table>
-    <tr>
-      <td>Course name:</td>
-      <td><input type="text" th:field="*{name}"/></td>
-      <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
-    </tr>
-    <tr>
-      <td>Day of week:</td>
-      <td><select th:field="*{weekday}">
-        <option th:each="weekday : ${weekdays}"
-                th:value="${weekday}"
-                th:text="${weekday.name}"></option>
-      </select></td>
-      <!--<td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>-->
-    </tr>
-    <tr>
-      <td>Hour:</td>
-      <td><select name="time" th:field="*{time}">
-        <option value="10">10:00</option>
-        <option value="12">12:00</option>
-        <option value="14">14:00</option>
-        <option value="16">16:00</option>
-        <option value="18">18:00</option>
-        <option value="20">20:00</option>
-      </select></td>
-      <!--<td><input type="text" th:field="*{time}" /></td>
-      <td th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time Error</td>
--->                </tr>
-    <tr>
-      <td>Level:</td>
-      <td><input type="text" th:field="*{level}"/></td>
-      <td th:if="${#fields.hasErrors('level')}" th:errors="*{level}">Level Error</td>
-    </tr>
-    <tr>
-      <td>
-        <button type="submit">Submit</button>
-      </td>
-    </tr>
-  </table>
-</form>
+<div class="container">
+  <form action="#" th:action="@{/courses/add}" th:object="${course}" method="post">
+    <table>
+      <tr>
+        <td>Course name:</td>
+        <td><input type="text" th:field="*{name}"/></td>
+        <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+      </tr>
+      <tr>
+        <td>Day of week:</td>
+        <td><select th:field="*{weekday}">
+          <option th:each="weekday : ${weekdays}"
+                  th:value="${weekday}"
+                  th:text="${weekday.name}"></option>
+        </select></td>
+        <!--<td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>-->
+      </tr>
+      <tr>
+        <td>Hour:</td>
+        <td><select name="time" th:field="*{time}">
+          <option value="10">10:00</option>
+          <option value="12">12:00</option>
+          <option value="14">14:00</option>
+          <option value="16">16:00</option>
+          <option value="18">18:00</option>
+          <option value="20">20:00</option>
+        </select></td>
+        <!--<td><input type="text" th:field="*{time}" /></td>
+        <td th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time Error</td>
+  -->                </tr>
+      <tr>
+        <td>Level:</td>
+        <td><input type="text" th:field="*{level}"/></td>
+        <td th:if="${#fields.hasErrors('level')}" th:errors="*{level}">Level Error</td>
+      </tr>
+      <tr>
+        <td>
+          <button type="submit">Submit</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
 </body>
 </html>
