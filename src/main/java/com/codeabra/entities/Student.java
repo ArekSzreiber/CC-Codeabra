@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 
 @Table(name = "students", schema = "public")
@@ -24,4 +25,14 @@ public class Student extends Person {
     @NotNull(message = "{notnull.role}")
     public Role role;
 
+    @Override
+    public String toString() {
+        return "Student:" +
+                "studentId:" + studentId +
+                ",role:" + role +
+                ",name:" + name +
+                ",surname:" + surname +
+                ",emailAddress:" + emailAddress +
+                ",phoneNumber:" + phoneNumber;
+    }
 }
