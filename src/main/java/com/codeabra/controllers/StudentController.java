@@ -87,10 +87,4 @@ public class StudentController {
         }
     }
 
-    @PutMapping("/students")
-    public Student updateMedicine(@RequestBody Student student) {
-        studentRepository.save(student);
-        return student;
-    }
-
 }
