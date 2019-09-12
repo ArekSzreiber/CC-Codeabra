@@ -25,7 +25,7 @@ public class Course {
 
     @NotNull(message = "{notnull}")
     @Column
-    @Enumerated()
+    @Enumerated
     //@Pattern(regexp = "\\b(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\\b", message = "To nie jest poprawny dzień tygodnia!")
     private Weekday weekday;
 

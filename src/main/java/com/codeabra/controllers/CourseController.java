@@ -30,7 +30,6 @@ public class CourseController {
         return "courses/courses-list";
     }
 
-
     @GetMapping("/courses/add")
     public String showAddCourseForm(Model model) {
         model.addAttribute("course", new Course());
@@ -51,7 +50,7 @@ public class CourseController {
     }
 
     //edit Course
-    @GetMapping("/courses/edit")
+    @PutMapping("/courses/edit")
     public String editCourseForm(@RequestParam("id") int courseId,
                                  Model model) {
         Course course = courseRepository.findById(courseId).get();//TODO use Optional (see examples in medicalspring)
