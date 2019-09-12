@@ -42,6 +42,8 @@ public class CourseController {
     public String addNewCourse(@Valid @ModelAttribute("course") Course course,
                                BindingResult result) {
         if (result.hasErrors()) {
+            //add enums
+            //return form for adding course
             return "redirect:/courses/add";
         } else {
             courseRepository.save(course);
