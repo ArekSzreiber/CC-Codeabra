@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -58,10 +55,10 @@ public class CourseController {
         return "courses/course-form";
     }
 
-    //delete Course
-    @GetMapping("/courses/delete")
-    public String deleteCourse(@RequestParam("courseToDeleteId") int courseId) {
-        courseRepository.deleteById(courseId);
+
+    @DeleteMapping("/courses/{id}")
+    public String deleteCourse(@PathVariable int id) {
+        courseRepository.deleteById(id);
         return "redirect:/courses";
     }
 
