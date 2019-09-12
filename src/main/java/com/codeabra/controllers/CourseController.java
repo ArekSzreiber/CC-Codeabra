@@ -1,6 +1,7 @@
 package com.codeabra.controllers;
 
 import com.codeabra.entities.Course;
+import com.codeabra.entities.Time;
 import com.codeabra.entities.Weekday;
 import com.codeabra.repositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,7 @@ public class CourseController {
     public String showAddCourseForm(Model model) {
         model.addAttribute("course", new Course());
         model.addAttribute("weekdays", Weekday.values());
+        model.addAttribute("hours", Time.values());
         return "courses/courses-form";
     }
 
