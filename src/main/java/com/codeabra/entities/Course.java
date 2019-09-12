@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 @Data
@@ -24,15 +25,18 @@ public class Course {
 
     @NotNull(message = "{notnull}")
     @Column
+    @Enumerated()
+    //@Pattern(regexp = "\\b(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY)\\b", message = "To nie jest poprawny dzień tygodnia!")
     private Weekday weekday;
 
     @NotNull(message = "{notnull}")
     @Column
-    private String time;
+    @Enumerated
+    //@Pattern(regexp = "\\b(?:TEN|TWELVE|FOURTEEN|SIXTEEN|EIGHTEEN|TWENTY)\\b", message = "To nie jest poprawna godzina!")
+    private Time time;
 
     @NotNull(message = "{notnull}")
     @Column
     private String level;
-
 
 }

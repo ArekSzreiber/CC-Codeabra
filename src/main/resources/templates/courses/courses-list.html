@@ -26,7 +26,7 @@
     <tr th:each="course : ${courses}">
       <td th:text="${course.name}"></td>
       <td th:text="${course.weekday.name}" class="funny"></td>
-      <td th:text="${course.time}" class="funny"></td>
+      <td th:text="${course.time.time}" class="funny"></td>
       <td th:text="${course.level}" class="funny"></td>
       <td>
       <form action="#" th:action="@{/courses/{id}(id=${course.courseId})}"
