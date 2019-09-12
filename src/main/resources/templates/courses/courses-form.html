@@ -20,7 +20,7 @@
                   th:value="${weekday}"
                   th:text="${weekday.name}"></option>
         </select></td>
-        <!--<td th:if="${#fields.hasErrors('dayOfWeek')}" th:errors="*{dayOfWeek}">Age Error</td>-->
+        <td th:if="${#fields.hasErrors('weekday')}" th:errors="*{weekday}">Weekday Error</td>
       </tr>
       <tr>
         <td>Hour:</td>
@@ -29,9 +29,8 @@
                   th:text="${time.time}"
                   th:value="${time}"></option>
         </select></td>
-        <!--<td><input type="text" th:field="*{time}" /></td>
         <td th:if="${#fields.hasErrors('time')}" th:errors="*{time}">Time Error</td>
-  -->                </tr>
+      </tr>
       <tr>
         <td>Level:</td>
         <td><input type="text" th:field="*{level}"/></td>

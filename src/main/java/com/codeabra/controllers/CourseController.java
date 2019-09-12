@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 public class CourseController {
@@ -24,7 +25,8 @@ public class CourseController {
 
     @GetMapping("/courses")
     public String showAllCourses(Model theModel) {
-        theModel.addAttribute("courses", courseRepository.findAll());
+        List<Course> allCourses = courseRepository.findAll();
+        theModel.addAttribute("courses", allCourses);
         return "courses/courses-list";
     }
 
